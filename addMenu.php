@@ -1,11 +1,10 @@
 <?php
-    include 'functions.php';
     include 'crud.php';
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Canque PoS</title>
+    <title>Add Menu</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,11 +35,11 @@
             <div class="mb-3 mt-3">
                 <div class="form-group">
                     <label for="menuName">Menu Name</label>
-                    <input type="text" class="form-control" id="menuName" name="menuName" value="<?php echo htmlspecialchars($edit_menuname); ?>" required>
+                    <input type="text" class="form-control" id="menuName" name="menuName" maxlength="100" required>
                 </div>
                 <div class="form-group">
                     <label for="menuDescription">Menu Description</label>
-                    <textarea class="form-control" id="menuDesc" name="menuDesc"><?php echo htmlspecialchars($edit_menudesc); ?></textarea>
+                    <textarea class="form-control" id="menuDesc" name="menuDesc" rows="3" maxlength="1000"></textarea>
                 </div>
             </div> 
             <button type="submit" name="submit" class="btn btn-primary">Submit</button>
