@@ -65,59 +65,10 @@
         </table>
     </div>
 
-    <div class="modal fade" id="editMenuModal" tabindex="-1" role="dialog" aria-labelledby="editMenuModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editMenuModalLabel">Edit Menu Item</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form method="post" action="crud.php">
-                        <input type="hidden" name="id" id="edit-menu-id">
-                        <div class="form-group">
-                            <label for="edit-menuName">Menu name</label>
-                            <input type="text" class="form-control" id="edit-menuName" name="menuName" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="edit-menuDesc">Menu description</label>
-                            <textarea class="form-control" id="edit-menuDesc" name="menuDesc" rows="3" required></textarea>
-                        </div>
-                        <!-- <div class="form-group">
-                            <label for="edit-price">Price</label>
-                            <input type="text" class="form-control" id="edit-price" name="price" required />
-                        </div> -->
-                        <button class="btn btn-primary" type="submit" name="edit" style="margin-left: 190px; margin-top: 15px;">Save</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="deleteMenuModal" tabindex="-1" role="dialog" aria-labelledby="deleteMenuModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="deleteMenuModalLabel">Confirm Deletion</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Are you sure you want to delete this menu item?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <form method="post" style="display: inline;">
-                        <input type="hidden" name="delete" id="delete-menu-id">
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php 
+        include 'editModal.php';
+        include 'deleteModal.php';
+    ?>
 
     <script>
 		 $('#editMenuModal').on('show.bs.modal', function (event) {
@@ -125,13 +76,10 @@
             var menuId = button.data('menu-id');
             var menuName = button.data('menu-name');
             var menuDesc = button.data('menu-desc');
-            //var price = button.data('price');
 
-            
             $('#edit-menu-id').val(menuId);
             $('#edit-menuName').val(menuName);
             $('#edit-menuDesc').val(menuDesc);
-            //$('#edit-price').val(price);
         });
 
 		$('#deleteMenuModal').on('show.bs.modal', function (event) {
